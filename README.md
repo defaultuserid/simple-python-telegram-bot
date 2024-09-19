@@ -30,7 +30,7 @@ Mostly proof of concept.
     users_json = users.json
     addons = ['start', 'stop', 'help', 'cats']
 
-* **token** — get bot token [here](https://core.telegram.org/bots/features#botfather) and replace default token `0123456789:AAAAAAAAAA-AAAAAAAAAAAAAAAAAAAAAAAA` with it.
+* **token** — get bot token [here](https://core.telegram.org/bots/features#botfather) and replace default token with it.
 * **language** — language used for information messages, `en` or `ru`.
 * **debug** — set to `True` to see in detail what is going on.
 * **send_timeout** — amount of time in seconds for delay between sending each message.
