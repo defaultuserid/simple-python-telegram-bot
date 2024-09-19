@@ -1,7 +1,7 @@
 # Simple-Python-Telegram-Bot
 
 A simple python telegram bot that uses the official [bot-api](https://core.telegram.org/bots/api) for its magic.\
-Uses modules from python's built-in library.\
+Uses modules from python's built-in library.
 
 ## Features
 
