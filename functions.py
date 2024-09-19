@@ -113,10 +113,10 @@ def do_action(act_data: tuple, msg_data: dict) -> None:
     user_id: int = msg_data['user_id']
 
     if callable(action):
-        show_info(inf_tpl[act_tpl].format(user_id, command), True)
+        show_info(inf_tpl[act_tpl].format(user_id, command), 3, True)
         action(command=command, suffix=suffix, msg_data=msg_data, act_data=act_data)
     elif isinstance(action, str):
-        show_info(inf_tpl[act_tpl].format(user_id, command), True)
+        show_info(inf_tpl[act_tpl].format(user_id, command), 3, True)
         send_message(user_id, action)
 
 
