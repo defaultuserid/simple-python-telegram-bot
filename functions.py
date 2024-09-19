@@ -121,7 +121,6 @@ def do_action(act_data: tuple, msg_data: dict) -> None:
 
 
 def set_offset(new_offset: int) -> None:
-    
     global cur_offset
 
     next_offset: int = new_offset + 1
@@ -158,10 +157,7 @@ def update_user_access(user_id: int, user_lvl: int) -> None:
 
 def addons_registrar():
     def registrar(module, groups: tuple):
-        for (
-            number,
-            group,
-        ) in enumerate(groups):
+        for (number, group) in enumerate(groups):
             group_type: dict = commands if number == 0 else triggers
 
             for command in group:
