@@ -5,7 +5,7 @@ Uses modules from python's built-in library.
 
 ## Features
 
-1. Multilingual support (currently supports: **en**, **ru**)
+1. Multilingual support (currently only supports **en**)
 2. Simple configuration file: `config.ini`
 3. User access levels: `3 admin, 2 trusted, 1 registered, 0 unregistered, -1 banned`
 4. Support modules for triggers/commands.
