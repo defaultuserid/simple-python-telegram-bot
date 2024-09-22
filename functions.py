@@ -3,7 +3,7 @@ from importlib.util import module_from_spec, spec_from_file_location
 from json import loads, dump
 from re import match
 from sys import modules
-from time import strftime, sleep
+from time import strftime, sleep, time
 from urllib.parse import quote
 from urllib.request import urlopen
 
@@ -72,14 +72,14 @@ def find_action(msg_txt: str) -> tuple:
     for command in commands:
         if cmd_pref.casefold() == command.casefold():
             show_info(inf_tpl['CmdFound'].format(command), 3)
-            result = commands, command, commands[command][0], cmd_suf
+            result: tuple = commands, command, commands[command][0], cmd_suf
             break
 
     if not result:
         for trigger in triggers:
             if match(trigger, msg_txt):
                 show_info(inf_tpl['TrigFound'].format(trigger), 3)
-                result = riggers, trigger, triggers[trigger][0]
+                result: tuple = riggers, trigger, triggers[trigger][0]
                 break
 
         show_info(inf_tpl['NoTrigOrCmd'].format(msg_txt), 3)
@@ -126,7 +126,7 @@ def set_offset(new_offset: int) -> None:
     next_offset: int = new_offset + 1
 
     if new_offset >= cur_offset:
-        cur_offset = next_offset
+        cur_offset: int = next_offset
         show_info(inf_tpl['SetNewOff'].format(new_offset, next_offset), 3)
     elif new_offset < cur_offset:
         show_info(inf_tpl['RcvOldOff'].format(new_offset, cur_offset), 5, True)
@@ -176,8 +176,8 @@ def addons_registrar():
             addon_name: str = f'addon_{addon}'
             addon_file: str = f'addons/{addon}.py'
 
-            spec = spec_from_file_location(addon_name, addon_file)
-            module_obj = module_from_spec(spec)
+            spec: ModuleSpec = spec_from_file_location(addon_name, addon_file)
+            module_obj: ModuleTyp = module_from_spec(spec)
             modules[addon_name]: dict = module_obj
             spec.loader.exec_module(module_obj)
 
